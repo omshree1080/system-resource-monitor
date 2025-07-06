@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t system-monitor .'
+            }
+        }
+        stage('Docker Compose Up') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "sysmon",
+    "title": "System Resource Monitor",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "CPU Load",
+        "targets": [{
+          "expr": "alias(system.cpu.load, 'CPU Load')",
+          "format": "time_series"
+        }],
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Memory Available (MB)",
+        "targets": [{
+          "expr": "alias(system.memory.available, 'Memory Available')",
+          "format": "time_series"
+        }],
+        "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Disk Free (GB)",
+        "targets": [{
+          "expr": "alias(system.disk.free, 'Disk Free')",
+          "format": "time_series"
+        }],
+        "gridPos": { "x": 0, "y": 8, "w": 24, "h": 8 }
+      }
+    ],
+    "schemaVersion": 27,
+    "version": 1,
+    "refresh": "10s"
+  },
+  "overwrite": true
+}
